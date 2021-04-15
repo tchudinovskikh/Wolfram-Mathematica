@@ -1,0 +1,211 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7869,        203]
+NotebookOptionsPosition[      7572,        190]
+NotebookOutlinePosition[      7915,        205]
+CellTagsIndexPosition[      7872,        202]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"ClearAll", "[", "\"\<Global`*\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"n", "=", "100000"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"v", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"0", ",", "n"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"color", "=", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"Blue", ",", "n"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"points", " ", "=", " ", 
+   RowBox[{"ConstantArray", "[", 
+    RowBox[{"0", ",", "n"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Do", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"p1", " ", "=", " ", 
+     RowBox[{"First", "[", 
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"UniformDistribution", "[", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "10"}], "}"}], "]"}], ",", "1"}], "]"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"p2", "=", 
+     RowBox[{"First", "[", 
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"UniformDistribution", "[", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", "20"}], "}"}], "]"}], ",", "1"}], "]"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"corner", " ", "=", "   ", 
+     RowBox[{"First", "[", 
+      RowBox[{"RandomVariate", "[", 
+       RowBox[{
+        RowBox[{"UniformDistribution", "[", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"2", "Pi"}]}], "}"}], "]"}], ",", "1"}], "]"}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"s", "=", 
+     RowBox[{"Sin", "[", "corner", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"c", "=", 
+     RowBox[{"Cos", "[", "corner", "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"p3", "=", 
+     RowBox[{"p1", " ", "+", 
+      RowBox[{"c", "*", "0.99"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"p4", "=", 
+     RowBox[{"p2", "+", 
+      RowBox[{"s", "*", "0.99"}]}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"points", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"p1", ",", "p2"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"p3", ",", "p4"}], "}"}]}], "}"}]}], ";", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Floor", "[", 
+        RowBox[{"Max", "[", 
+         RowBox[{"{", 
+          RowBox[{"p2", ",", "p4"}], "}"}], "]"}], "]"}], "\[Equal]", 
+       RowBox[{"Ceiling", "[", 
+        RowBox[{"Min", "[", 
+         RowBox[{"{", 
+          RowBox[{"p2", ",", "p4"}], "}"}], "]"}], "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"v", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "=", "1"}], " ", ",", " ", 
+      RowBox[{
+       RowBox[{"color", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], "=", "Pink"}]}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "n"}], "}"}]}], "\[IndentingNewLine]", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Total", "[", "v", "]"}], "/", "n"}], "//", "N"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"Show", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Plot", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "0", ",", "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", 
+         "7", ",", "8", ",", "9", ",", "10", ",", "11", ",", "12", ",", "13", 
+         ",", "14", ",", "15", ",", "16", ",", "17", ",", "18", ",", "19", 
+         ",", "20"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"x", ",", "0", ",", "10"}], "}"}], ",", " ", 
+       RowBox[{"Epilog", "\[Rule]", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"10", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"10", ",", "20"}], "}"}]}], "}"}], "]"}], ",", " ", 
+          RowBox[{"Line", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "20"}], "}"}]}], "}"}], "]"}]}], "}"}]}], ",",
+        "  ", 
+       RowBox[{"AspectRatio", "\[Rule]", "2"}], ",", " ", 
+       RowBox[{"PlotStyle", "\[Rule]", "Black"}], ",", " ", 
+       RowBox[{"ImageSize", "\[Rule]", 
+        RowBox[{"Scaled", "[", "0.22", "]"}]}], ",", " ", 
+       RowBox[{"PlotLabel", "\[Rule]", 
+        RowBox[{"N", "[", 
+         RowBox[{
+          RowBox[{"Total", "[", 
+           RowBox[{"Take", "[", 
+            RowBox[{"v", ",", "i"}], "]"}], "]"}], "/", "i"}], "]"}]}]}], 
+      "]"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"Take", "[", 
+        RowBox[{"points", ",", "i"}], "]"}], ",", " ", 
+       RowBox[{"PlotStyle", "\[Rule]", 
+        RowBox[{"Take", "[", 
+         RowBox[{"color", ",", "i"}], "]"}]}]}], "]"}]}], "]"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", "1", ",", "500", ",", "1"}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.797232293084717*^9, 3.7972323044333253`*^9}, {
+   3.797232430006961*^9, 3.797232481053694*^9}, {3.797232533677202*^9, 
+   3.7972325849511385`*^9}, {3.7972328490783796`*^9, 
+   3.7972330163781786`*^9}, {3.797233091333556*^9, 3.797233091630489*^9}, {
+   3.797233121764925*^9, 3.797233142373969*^9}, {3.797233193589961*^9, 
+   3.7972332281609387`*^9}, 3.797233281481491*^9, {3.7972333203091216`*^9, 
+   3.797233338617076*^9}, 3.797233405753513*^9, {3.797233460420555*^9, 
+   3.7972334616105123`*^9}, {3.7972335446212487`*^9, 
+   3.7972335473211956`*^9}, {3.7972336085862885`*^9, 3.797233608719495*^9}, {
+   3.7972338594740515`*^9, 3.7972338614046354`*^9}, {3.797234226821314*^9, 
+   3.7972342523234377`*^9}, {3.79723447984931*^9, 3.7972344829869285`*^9}, {
+   3.7972347548958683`*^9, 3.797234817645645*^9}, {3.797234883810234*^9, 
+   3.7972349710495625`*^9}, {3.7972353688952503`*^9, 3.797235476190755*^9}, 
+   3.7972357223571014`*^9, {3.797235999791494*^9, 3.797236009358148*^9}, {
+   3.7972361801852846`*^9, 3.7972362240611467`*^9}, {3.797236783532775*^9, 
+   3.797236812804185*^9}, {3.7972371928586764`*^9, 3.7972371944587717`*^9}, {
+   3.7972372252228374`*^9, 3.7972372295587435`*^9}, {3.7972374202598658`*^9, 
+   3.7972374252654037`*^9}, {3.7972380809866285`*^9, 3.797238240945067*^9}, {
+   3.7972382822518873`*^9, 3.7972382846431923`*^9}, {3.7972383452083178`*^9, 
+   3.797238364394903*^9}, {3.79723840090442*^9, 3.797238468522332*^9}, {
+   3.797238597172464*^9, 3.797238610650997*^9}, {3.797238664906376*^9, 
+   3.7972387354851494`*^9}, {3.797238798252078*^9, 3.797238801977683*^9}, {
+   3.7972388352425065`*^9, 3.797238836045412*^9}, {3.7972393612860007`*^9, 
+   3.7972393816195717`*^9}},
+ CellLabel->
+  "In[399]:=",ExpressionUUID->"fa67f9ba-6993-4e3f-8598-782d10651b98"]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 7010, 168, 754, "Input",ExpressionUUID->"fa67f9ba-6993-4e3f-8598-782d10651b98"]
+}
+]
+*)
+
